@@ -11,11 +11,7 @@ it introduces some modifications:
 - Creates "contrib" and "custom" folders for modules, themes, libraries, profiles and drush plugins by default
 - Adds the [Composer Parallel Install](https://github.com/hirak/prestissimo) plugin to speed up downloads
 - Adds the [Composer Merge](https://github.com/wikimedia/composer-merge-plugin) plugin to manage dependencies of custom modules
-
-## Current status
-
-This project template is still work in progress, but usable. It needs some work regarding file
-and directory access rights, and some more testing love. Feel free to file [issues](https://github.com/drubb/drupal-project/issues)
+- Adds the [Asset Packagist](https://asset-packagist.org) repository to manage npm / bower dependencies
 
 ## Usage
 
@@ -27,13 +23,15 @@ After that you can create the project:
 composer create-project drubb/drupal-simple some-dir
 ```
 
+Replace 'some-dir' by your project root folder, or '.' for current directory.
+
 It's a good idea to create a git repository at this point: `git init`.
 
 ## What does the template do?
 
 When installing the given `composer.json` some tasks are taken care of:
 
-* Drupal will be installed in the `web`-directory.
+* The current stable Drupal 8 Version will be installed in the `web`-directory.
 * Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
   instead of the one provided by Drupal (`web/vendor/autoload.php`).
 * Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
