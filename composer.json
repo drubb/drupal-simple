@@ -1,0 +1,81 @@
+{
+  "name": "drubb/drupal-simple",
+  "description": "Project template for Drupal 8 projects with composer",
+  "type": "project",
+  "license": "GPL-2.0+",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "drupal-composer/drupal-scaffold": "^2.3",
+    "cweagans/composer-patches": "^1.6",
+    "drupal/core": "^8.4",
+    "drush/drush": "^9.0",
+    "drupal/console": "^1.0",
+    "hirak/prestissimo": "^0.3",
+    "oomphinc/composer-installers-extender": "^1.1"
+
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "classmap": [
+      "scripts/composer/ScriptHandler.php"
+    ]
+  },
+  "scripts": {
+    "post-drupal-scaffold-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+    ],
+    "post-create-project-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::cleanupComposer"
+    ]
+  },
+  "extra": {
+    "enable-patching": true,
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/libraries/contrib/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "merge-plugin": {
+      "include": [
+        "web/modules/custom/*/composer.json"
+      ],
+      "recurse": false,
+      "replace": false,
+      "merge-extra": false
+    }
+  }
+}
