@@ -82,6 +82,8 @@ class ScriptHandler {
       $settings = '<?php' . PHP_EOL;
       $settings .= '$settings["file_public_path"] = "sites/default/files";' . PHP_EOL;
       $settings .= '$settings["file_private_path"] = "' . getcwd() . '/files/private";' . PHP_EOL;
+      $settings .= '$config["system.file"]["path"]["temporary"] = "/tmp";' . PHP_EOL;
+      $settings .= '$settings["file_scan_ignore_directories"] = ["node_modules", "vendor", "bower_components"];' . PHP_EOL;
       $settings .= '$settings["trusted_host_patterns"] = [ ".*" ];' . PHP_EOL;
       $settings .= '$config_directories[CONFIG_SYNC_DIRECTORY] = "' . getcwd() . '/config/sync";' . PHP_EOL;
       $fs->dumpFile($web_root . '/sites/default/settings.local.php', $settings);
