@@ -4,14 +4,14 @@ This project template should provide a kickstart for managing your site
 dependencies with [Composer](https://getcomposer.org/). Based on the excellent [Drupal Composer Project](https://github.com/drupal-composer/drupal-project)
 it introduces some modifications:
 
-- Dev dependencies like Behat or PHPUnit are removed
-- Public and private files are placed outside the web root
-- The config sync folder is placed outside the web root
-- During installation, a local settings file is used to point to modified files and config location
-- Creates "contrib" and "custom" folders for modules, themes, libraries, profiles and drush plugins by default
-- Adds the [Composer Parallel Install](https://github.com/hirak/prestissimo) plugin to speed up downloads
-- Adds the [Composer Merge](https://github.com/wikimedia/composer-merge-plugin) plugin to manage dependencies of custom modules
-- Adds the [Asset Packagist](https://asset-packagist.org) repository to manage npm / bower dependencies
+- Dev dependencies like Behat or PHPUnit are removed, you can add them yourself as needed.
+- Public and private files are placed outside the web root.
+- The config sync folder is placed outside the web root.
+- During installation, a local settings file is used to point to modified files and config location.
+- Creates "contrib" and "custom" folders for modules, themes, libraries, profiles and drush plugins by default.
+- Adds the [Composer Parallel Install](https://github.com/hirak/prestissimo) plugin to speed up downloads.
+- Adds the [Composer Merge](https://github.com/wikimedia/composer-merge-plugin) plugin to manage dependencies of custom modules.
+- Adds the [Asset Packagist](https://asset-packagist.org) repository to manage npm / bower dependencies.
 
 ## Usage
 
@@ -46,18 +46,18 @@ When installing the given `composer.json` some tasks are taken care of:
 
 ## Updating Drupal Core
 
-This project will attempt to keep all of your Drupal Core files up-to-date; the 
-project [drupal-composer/drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) 
-is used to ensure that your scaffold files are updated every time drupal/core is 
-updated. If you customize any of the "scaffolding" files (eg .htaccess or robots.txt), 
-you may need to merge conflicts if any of your modified files are updated in a 
+This project will attempt to keep all of your Drupal Core files up-to-date; the
+project [drupal-composer/drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold)
+is used to ensure that your scaffold files are updated every time drupal/core is
+updated. If you customize any of the "scaffolding" files (eg .htaccess or robots.txt),
+you may need to merge conflicts if any of your modified files are updated in a
 new release of Drupal core.
 
 Follow the steps below to update your core files (run this commands in your project root):
 
 1. Run `composer update drupal/core --with-dependencies` to update Drupal Core and its dependencies.
-2. Run `git diff` to determine if any of the scaffolding files have changed. 
-   Review the files for any changes and restore any customizations to 
+2. Run `git diff` to determine if any of the scaffolding files has changed.
+   Review the files for any changes and restore any customizations to e.g.
   `.htaccess` or `robots.txt`. Commit your changes to git.
 
 ## Installing contributed modules
@@ -96,10 +96,10 @@ Run this command in your project root. This will add our custom module's depende
 
 ### How can I apply patches to downloaded modules?
 
-If you need to apply patches, you can do so with the 
+If you need to apply patches, you can do so with the
 [composer-patches](https://github.com/cweagans/composer-patches) plugin.
 
-To add a patch to Drupal module foobar insert the patches section in the extra 
+To add a patch to Drupal module foobar insert the patches section in the extra
 section of composer.json, in your project root:
 
 ```json
