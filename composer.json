@@ -1,6 +1,6 @@
 {
   "name": "drubb/drupal-simple",
-  "description": "Project template for Drupal 8 projects with composer",
+  "description": "Project template for Drupal 8 projects with Composer",
   "type": "project",
   "license": "GPL-2.0+",
   "repositories": [
@@ -14,9 +14,9 @@
     }
   ],
   "require": {
-    "drupal-composer/drupal-scaffold": "^2.3",
+    "drupal-composer/drupal-scaffold": "^2.5",
     "cweagans/composer-patches": "^1.6",
-    "drupal/core": "^8.4",
+    "drupal/core": "^8.0",
     "drush/drush": "^9.0",
     "drupal/console": "^1.0",
     "hirak/prestissimo": "^0.3",
