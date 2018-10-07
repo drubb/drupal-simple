@@ -20,12 +20,17 @@ First you need to [install composer](https://getcomposer.org/doc/00-intro.md#ins
 After that you can create the project:
 
 ```
-composer create-project drubb/drupal-simple some-dir
+composer create-project -s dev drubb/drupal-simple some-dir
 ```
 
 Replace 'some-dir' by your project root folder, or '.' for current directory.
 
-It's a good idea to create a git repository at this point: `git init`.
+If you get an outdated version of Drupal core, please check your php extensions. Latest versions of core
+might require additional extensions. Here's an example how to check this:
+
+```
+composer why-not drupal/core:8.6.1
+```
 
 ## What does the template do?
 
